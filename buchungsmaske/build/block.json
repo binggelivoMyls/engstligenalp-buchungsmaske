@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/searchbar",
+  "version": "0.1.0",
+  "title": "Searchbar",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example static block scaffolded with Create Block tool.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "searchbar",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "bergbhntickets": {
+      "type": "boolean"
+    },
+    "uebernachtungbuchn": {
+      "type": "boolean"
+    },
+    "kaesereibesuch": {
+      "type": "boolean"
+    },
+    "gutschein": {
+      "type": "boolean"
+    },
+    "fondures": {
+      "type": "boolean"
+    },
+    "raclettres": {
+      "type": "boolean"
+    },
+    "tischres_fondue": {
+      "type": "boolean"
+    },
+    "tischres_raclett": {
+      "type": "boolean"
+    },
+    "dropdn_firstselected": {
+      "type": "string"
+    },
+    "dropdn_restselected": {
+      "type": "string"
+    }
+  }
+}
