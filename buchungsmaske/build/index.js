@@ -69,6 +69,12 @@ function Edit(_ref) {
       bergbhntickets: val
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Ski- und Bergbahntickets kaufen",
+    checked: attributes.skiticket,
+    onChange: val => setAttributes({
+      skiticket: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
     label: "\xDCbernachtung buchen",
     checked: attributes.uebernachtungbuchn,
     onChange: val => setAttributes({
@@ -121,6 +127,9 @@ function Edit(_ref) {
     }, {
       label: 'Bergbahntickets kaufen',
       value: 'bahn'
+    }, {
+      label: 'Ski- und Bergbahntickets kaufen',
+      value: 'ski'
     }, {
       label: 'Übernachtung buchen',
       value: 'hotel'
@@ -254,6 +263,7 @@ function save(_ref) {
   } = _ref;
   var bergbhntickets;
   var uebernachtungbuchn;
+  var skiticket;
   var tischres;
   var kaesereibesuch;
   var gutschein;
@@ -272,6 +282,19 @@ function save(_ref) {
       bergbhntickets = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
         value: "bahn"
       }, 'Bergbahntickets kaufen');
+    }
+  }
+
+  if (attributes.skiticket) {
+    if (attributes.dropdn_firstselected == "ski") {
+      skiticket = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+        value: "ski",
+        selected: true
+      }, 'Ski- und Bergbahntickets kaufen');
+    } else {
+      skiticket = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+        value: "ski"
+      }, 'Ski- und Bergbahntickets kaufen');
     }
   }
 
@@ -482,7 +505,7 @@ function save(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     disabled: true,
     selected: true
-  }, 'Angebot auswählen'), bergbhntickets, uebernachtungbuchn, tischres, fondures, raclettres, kaesereibesuch, gutschein)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, 'Angebot auswählen'), bergbhntickets, skiticket, uebernachtungbuchn, tischres, fondures, raclettres, kaesereibesuch, gutschein)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "col-sm-12 col-md-7 row searchbox-changes searchbox-hotel displaynone"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "col-md-5"
@@ -583,6 +606,12 @@ function save(_ref) {
                         $(".card_searchbox .btn-success").html('Jetzt buchen');
                         $(".card_searchbox .btn-searchbox").show();
                         console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                        $(".card_searchbox .searchbox-changes").addClass("displaynone");
+                        $(".card_searchbox .searchbox-leer").removeClass("displaynone");
+                        $(".card_searchbox .btn-success").html('Ticket bestellen');
+                        $(".card_searchbox .btn-searchbox").show();
+                        console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                         $(".card_searchbox .searchbox-changes").addClass("displaynone");
                         $(".card_searchbox .searchbox-reservieren").removeClass("displaynone");
@@ -645,6 +674,9 @@ function save(_ref) {
                             "&amp;out=" +
                             $("#hoteldate").val().split("-")[1].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[0] +
                             "&amp;coupon=").replaceAll("amp;", ""))
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                        dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
+                        window.open("https://shop.engstligenalp.ch/de/");
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                         dataLayer.push({'Searchbox': 'Restaurant'});
                         if ($("#chooseRestaurant").val() == "raclett") {
@@ -871,7 +903,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/searchbar","version":"0.1.0","title":"Searchbar","category":"widgets","icon":"smiley","description":"Example static block scaffolded with Create Block tool.","supports":{"html":false},"textdomain":"searchbar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"bergbhntickets":{"type":"boolean"},"uebernachtungbuchn":{"type":"boolean"},"kaesereibesuch":{"type":"boolean"},"gutschein":{"type":"boolean"},"fondures":{"type":"boolean"},"raclettres":{"type":"boolean"},"tischres_fondue":{"type":"boolean"},"tischres_raclett":{"type":"boolean"},"dropdn_firstselected":{"type":"string"},"dropdn_restselected":{"type":"string"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/searchbar","version":"0.1.0","title":"Searchbar","category":"widgets","icon":"smiley","description":"Example static block scaffolded with Create Block tool.","supports":{"html":false},"textdomain":"searchbar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"skiticket":{"type":"boolean"},"bergbhntickets":{"type":"boolean"},"uebernachtungbuchn":{"type":"boolean"},"kaesereibesuch":{"type":"boolean"},"gutschein":{"type":"boolean"},"fondures":{"type":"boolean"},"raclettres":{"type":"boolean"},"tischres_fondue":{"type":"boolean"},"tischres_raclett":{"type":"boolean"},"dropdn_firstselected":{"type":"string"},"dropdn_restselected":{"type":"string"}}}');
 
 /***/ })
 

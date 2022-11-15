@@ -32,117 +32,126 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( {attributes, setAttributes} ) {
+export default function Edit({ attributes, setAttributes }) {
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			<h3>
-				{ __( 'Searchbar einstellen', 'searchbar' ) }
+				{__('Searchbar einstellen', 'searchbar')}
 			</h3>
 			<p>
-				{ __( 'Searchbar Dropdowns ein und ausstellen', 'searchbar' ) }
+				{__('Searchbar Dropdowns ein und ausstellen', 'searchbar')}
 			</p>
 			<CheckboxControl
 				label="Bergbahntickets kaufen"
-				checked={ attributes.bergbhntickets }
-				onChange={ ( val ) => setAttributes( { bergbhntickets: val } ) }
+				checked={attributes.bergbhntickets}
+				onChange={(val) => setAttributes({ bergbhntickets: val })}
+			/>
+			<CheckboxControl
+				label="Ski- und Bergbahntickets kaufen"
+				checked={attributes.skiticket}
+				onChange={(val) => setAttributes({ skiticket: val })}
 			/>
 			<CheckboxControl
 				label="Übernachtung buchen"
-				checked={ attributes.uebernachtungbuchn }
-				onChange={ ( val ) => setAttributes( { uebernachtungbuchn: val } ) }
+				checked={attributes.uebernachtungbuchn}
+				onChange={(val) => setAttributes({ uebernachtungbuchn: val })}
 			/>
 			<CheckboxControl
 				label="Alpkäsereibesuch buchen"
-				checked={ attributes.kaesereibesuch }
-				onChange={ ( val ) => setAttributes( { kaesereibesuch: val } ) }
+				checked={attributes.kaesereibesuch}
+				onChange={(val) => setAttributes({ kaesereibesuch: val })}
 			/>
 			<CheckboxControl
 				label="Gutscheine bestellen"
-				checked={ attributes.gutschein }
-				onChange={ ( val ) => setAttributes( { gutschein: val } ) }
+				checked={attributes.gutschein}
+				onChange={(val) => setAttributes({ gutschein: val })}
 			/>
 			<CheckboxControl
 				label="Fondue-Iglu reservieren"
-				checked={ attributes.fondures }
-				onChange={ ( val ) => setAttributes( { fondures: val } ) }
+				checked={attributes.fondures}
+				onChange={(val) => setAttributes({ fondures: val })}
 			/>
 			<CheckboxControl
 				label="Raclettehütte reservieren"
-				checked={ attributes.raclettres }
-				onChange={ ( val ) => setAttributes( { raclettres: val } ) }
+				checked={attributes.raclettres}
+				onChange={(val) => setAttributes({ raclettres: val })}
 			/>
 			<h3>
-				{ __( 'Unterkategorien', 'searchbar' ) }
+				{__('Unterkategorien', 'searchbar')}
 			</h3>
 			<h4>
-				{ __( 'Tisch reservieren', 'searchbar' ) }
+				{__('Tisch reservieren', 'searchbar')}
 			</h4>
 			<CheckboxControl
 				label="Fondue-Iglu reservieren"
-				checked={ attributes.tischres_fondue }
-				onChange={ ( val ) => setAttributes( { tischres_fondue: val } ) }
+				checked={attributes.tischres_fondue}
+				onChange={(val) => setAttributes({ tischres_fondue: val })}
 			/>
 			<CheckboxControl
 				label="Raclettehütte reservieren"
-				checked={ attributes.tischres_raclett }
-				onChange={ ( val ) => setAttributes( { tischres_raclett: val } ) }
+				checked={attributes.tischres_raclett}
+				onChange={(val) => setAttributes({ tischres_raclett: val })}
 			/>
 			<h3>
-				{ __( 'Vorauswahl', 'searchbar' ) }
+				{__('Vorauswahl', 'searchbar')}
 			</h3>
 			<SelectControl
-				value={ attributes.dropdn_firstselected }
-				onChange={ ( val ) => setAttributes( { dropdn_firstselected: val } ) }
+				value={attributes.dropdn_firstselected}
+				onChange={(val) => setAttributes({ dropdn_firstselected: val })}
 				options={[
 					{
-					label: 'Angebot Auswahl auswählen',
-					value: ''
+						label: 'Angebot Auswahl auswählen',
+						value: ''
 					},
 					{
-					label: 'Bergbahntickets kaufen',
-					value: 'bahn'
+						label: 'Bergbahntickets kaufen',
+						value: 'bahn'
 					},
 					{
-					label: 'Übernachtung buchen',
-					value: 'hotel'
+						label: 'Ski- und Bergbahntickets kaufen',
+						value: 'ski'
 					},
 					{
-					label: 'Tisch reservieren',
-					value: 'restaurant'
+						label: 'Übernachtung buchen',
+						value: 'hotel'
 					},
 					{
-					label: 'Fondue-Iglu reservieren',
-					value: 'fondures'
+						label: 'Tisch reservieren',
+						value: 'restaurant'
 					},
 					{
-					label: 'Raclettehütte reservieren',
-					value: 'raclettres'
+						label: 'Fondue-Iglu reservieren',
+						value: 'fondures'
 					},
 					{
-					label: 'Alpkäsereibesuch buchen',
-					value: 'kaserei'
+						label: 'Raclettehütte reservieren',
+						value: 'raclettres'
 					},
 					{
-					label: 'Gutscheine bestellen',
-					value: 'gutschein'
+						label: 'Alpkäsereibesuch buchen',
+						value: 'kaserei'
+					},
+					{
+						label: 'Gutscheine bestellen',
+						value: 'gutschein'
 					}
 				]}
 			/>
 			<SelectControl
-				value={ attributes.dropdn_restselected }
-				onChange={ ( val ) => setAttributes( { dropdn_restselected: val } ) }
+				value={attributes.dropdn_restselected}
+				onChange={(val) => setAttributes({ dropdn_restselected: val })}
 				options={[
 					{
-					label: 'Wähle Auswahl Tisch reservieren aus',
-					value: ''
+						label: 'Wähle Auswahl Tisch reservieren aus',
+						value: ''
 					},
 					{
-					label: 'Raclettehütte',
-					value: 'raclett'
+						label: 'Raclettehütte',
+						value: 'raclett'
 					},
 					{
-					label: 'Fondue-Iglu',
-					value: 'fondue'
+						label: 'Fondue-Iglu',
+						value: 'fondue'
 					}
 				]}
 			/>

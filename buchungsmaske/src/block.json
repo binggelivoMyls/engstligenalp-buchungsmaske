@@ -15,6 +15,9 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
+		"skiticket": {
+			"type": "boolean"
+		},
 		"bergbhntickets": {
 			"type": "boolean"
 		},

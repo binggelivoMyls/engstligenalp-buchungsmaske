@@ -18,6 +18,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save( {attributes} ) {
     var bergbhntickets;
     var uebernachtungbuchn;
+    var skiticket;
     var tischres;
     var kaesereibesuch;
     var gutschein;
@@ -30,6 +31,13 @@ export default function save( {attributes} ) {
             bergbhntickets = <option value="bahn" selected>{'Bergbahntickets kaufen'}</option>;
         }else{
             bergbhntickets = <option value="bahn">{'Bergbahntickets kaufen'}</option>;
+        }
+    }
+    if (attributes.skiticket){
+        if (attributes.dropdn_firstselected == "ski"){
+            skiticket = <option value="ski" selected>{'Ski- und Bergbahntickets kaufen'}</option>;
+        }else{
+            skiticket = <option value="ski">{'Ski- und Bergbahntickets kaufen'}</option>;
         }
     }
     if (attributes.uebernachtungbuchn){
@@ -151,6 +159,7 @@ export default function save( {attributes} ) {
                                 <select id="searchbox-dropdown" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                                     <option disabled selected>{'Angebot auswählen'}</option>
                                     {bergbhntickets}
+                                    {skiticket}
                                     {uebernachtungbuchn}
                                     {tischres}
                                     {fondures}
@@ -223,6 +232,12 @@ export default function save( {attributes} ) {
                         $(".card_searchbox .btn-success").html('Jetzt buchen');
                         $(".card_searchbox .btn-searchbox").show();
                         console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                        $(".card_searchbox .searchbox-changes").addClass("displaynone");
+                        $(".card_searchbox .searchbox-leer").removeClass("displaynone");
+                        $(".card_searchbox .btn-success").html('Ticket bestellen');
+                        $(".card_searchbox .btn-searchbox").show();
+                        console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                         $(".card_searchbox .searchbox-changes").addClass("displaynone");
                         $(".card_searchbox .searchbox-reservieren").removeClass("displaynone");
@@ -285,6 +300,9 @@ export default function save( {attributes} ) {
                             "&amp;out=" +
                             $("#hoteldate").val().split("-")[1].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[0] +
                             "&amp;coupon=").replaceAll("amp;", ""))
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                        dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
+                        window.open("https://shop.engstligenalp.ch/de/");
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                         dataLayer.push({'Searchbox': 'Restaurant'});
                         if ($("#chooseRestaurant").val() == "raclett") {
