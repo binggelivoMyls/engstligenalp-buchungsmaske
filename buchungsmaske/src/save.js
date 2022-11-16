@@ -70,9 +70,9 @@ export default function save( {attributes} ) {
     }
     if (attributes.fondures){
         if (attributes.dropdn_firstselected == "fondures"){
-            fondures = <option value="fondures" selected>{'Fondue-Inglu reservieren'}</option>;
+            fondures = <option value="fondures" selected>{'Fondue-Iglu reservieren'}</option>;
         }else{
-            fondures = <option value="fondures">{'Fondue-Inglu reservieren'}</option>;
+            fondures = <option value="fondures">{'Fondue-Iglu reservieren'}</option>;
         }
     }
     if (attributes.raclettres){
