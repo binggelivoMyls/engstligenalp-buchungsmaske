@@ -232,7 +232,7 @@ export default function save( {attributes} ) {
                         $(".card_searchbox .btn-success").html('Jetzt buchen');
                         $(".card_searchbox .btn-searchbox").show();
                         console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
-                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                         $(".card_searchbox .searchbox-changes").addClass("displaynone");
                         $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                         $(".card_searchbox .btn-success").html('Ticket bestellen');
