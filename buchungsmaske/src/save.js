@@ -300,7 +300,7 @@ export default function save( {attributes} ) {
                             "&amp;out=" +
                             $("#hoteldate").val().split("-")[1].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[0] +
                             "&amp;coupon=").replaceAll("amp;", ""))
-                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiticket") {
+                    } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                         dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
                         window.open("https://shop.engstligenalp.ch/de/");
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
