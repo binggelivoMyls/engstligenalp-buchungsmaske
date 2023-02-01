@@ -293,38 +293,38 @@ export default function save( {attributes} ) {
                             i++;
                         }
                         console.log(persondetail.slice(0, -1));
-                        window.open(("https://www.simplebooking.it/ibe/hotelbooking/search?hid=7607&amp;lang=de&amp;guests=" +
+                        document.location = ("https://www.simplebooking.it/ibe/hotelbooking/search?hid=7607&amp;lang=de&amp;guests=" +
                             persondetail.slice(0, -1) +
                             "&amp;in=" +
                             $("#hoteldate").val().split("-")[0].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[0] +
                             "&amp;out=" +
                             $("#hoteldate").val().split("-")[1].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[0] +
-                            "&amp;coupon=").replaceAll("amp;", ""))
+                            "&amp;coupon=").replaceAll("amp;", "");
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                         dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
-                        window.open("https://shop.engstligenalp.ch/de/");
+                        document.location = "https://shop.engstligenalp.ch/de/";
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                         dataLayer.push({'Searchbox': 'Restaurant'});
                         if ($("#chooseRestaurant").val() == "raclett") {
-                            window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9")
+                            document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9"
                         } else if ($("#chooseRestaurant").val() == "fondue") {
-                            window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9")
+                            document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9"
                         }
                         if ($("#chooseRestaurant").val() == "fondue") {
-                            window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9")
+                            document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9"
                         }
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
                         dataLayer.push({'Searchbox': 'Restaurant Fondue'});
-                        window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9")
+                        document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9"
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
                         dataLayer.push({'Searchbox': 'Restaurant Raclett'});
-                        window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9")
+                        document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9"
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
                         dataLayer.push({'Searchbox': 'Käserei'});
-                        window.open("https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9");
+                        document.location = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9";
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein") {
                         dataLayer.push({'Searchbox': 'Gutscheine'});
-                        window.open("https://shop.e-guma.ch/engstligenalp/de/gutscheine");
+                        document.location = "https://shop.e-guma.ch/engstligenalp/de/gutscheine";
                     } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
                         dataLayer.push({'Searchbox': 'Bergbahn'});
                         var persondetail = "";
@@ -342,20 +342,20 @@ export default function save( {attributes} ) {
                             ii++;
                         }
                         if ($("#chooseFahrt").val() == "ufe") {
-                            window.open(("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-bergfahrt-web/?s=" +
+                            document.location = ("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-bergfahrt-web/?s=" +
                                 $("#bahndatum").val().trim().split(".")[2] + "-" + $("#bahndatum").val().trim().split(".")[1] + "-" + $("#bahndatum").val().trim().split(".")[0] +
                                 persondetail +
-                                "&amp;dp=0").replaceAll("amp;", ""));
+                                "&amp;dp=0").replaceAll("amp;", "");
                         } else if ($("#chooseFahrt").val() == "abe") {
-                            window.open(("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-talfahrt-web/?s=" +
+                            document.location = ("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-talfahrt-web/?s=" +
                                 $("#bahndatum").val().trim().split(".")[2] + "-" + $("#bahndatum").val().trim().split(".")[1] + "-" + $("#bahndatum").val().trim().split(".")[0] +
                                 persondetail +
-                                "&amp;dp=0").replaceAll("amp;", ""));
+                                "&amp;dp=0").replaceAll("amp;", "");
                         } else if ($("#chooseFahrt").val() == "retour") {
-                            window.open(("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-retourfahrt-web/?s=" +
+                            document.location = ("https://shop.engstligenalp.ch/de/forfait-ski/engstligen-retourfahrt-web/?s=" +
                                 $("#bahndatum").val().trim().split(".")[2] + "-" + $("#bahndatum").val().trim().split(".")[1] + "-" + $("#bahndatum").val().trim().split(".")[0] +
                                 persondetail +
-                                "&amp;dp=0").replaceAll("amp;", ""));
+                                "&amp;dp=0").replaceAll("amp;", "");
                         }
                     }
                 })
