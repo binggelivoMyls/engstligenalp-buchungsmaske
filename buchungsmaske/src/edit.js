@@ -42,37 +42,37 @@ export default function Edit({ attributes, setAttributes }) {
 				{__('Searchbar Dropdowns ein und ausstellen', 'searchbar')}
 			</p>
 			<CheckboxControl
-				label="Bergbahntickets kaufen"
+				label={__('Bergbahntickets kaufen', 'searchbar')}
 				checked={attributes.bergbhntickets}
 				onChange={(val) => setAttributes({ bergbhntickets: val })}
 			/>
 			<CheckboxControl
-				label="Ski- und Bergbahntickets kaufen"
+				label={__('Ski- und Bergbahntickets kaufen', 'searchbar')}
 				checked={attributes.skiticket}
 				onChange={(val) => setAttributes({ skiticket: val })}
 			/>
 			<CheckboxControl
-				label="Übernachtung buchen"
+				label={__('Übernachtung buchen', 'searchbar')}
 				checked={attributes.uebernachtungbuchn}
 				onChange={(val) => setAttributes({ uebernachtungbuchn: val })}
 			/>
 			<CheckboxControl
-				label="Alpkäsereibesuch buchen"
+				label={__('Alpkäsereibesuch buchen', 'searchbar')}
 				checked={attributes.kaesereibesuch}
 				onChange={(val) => setAttributes({ kaesereibesuch: val })}
 			/>
 			<CheckboxControl
-				label="Gutscheine bestellen"
+				label={__('Gutscheine bestellen', 'searchbar')}
 				checked={attributes.gutschein}
 				onChange={(val) => setAttributes({ gutschein: val })}
 			/>
 			<CheckboxControl
-				label="Fondue-Iglu reservieren"
+				label={__('Fondue-Iglu reservieren', 'searchbar')}
 				checked={attributes.fondures}
 				onChange={(val) => setAttributes({ fondures: val })}
 			/>
 			<CheckboxControl
-				label="Raclettehütte reservieren"
+				label={__('Raclettehütte reservieren', 'searchbar')}
 				checked={attributes.raclettres}
 				onChange={(val) => setAttributes({ raclettres: val })}
 			/>
@@ -83,12 +83,12 @@ export default function Edit({ attributes, setAttributes }) {
 				{__('Tisch reservieren', 'searchbar')}
 			</h4>
 			<CheckboxControl
-				label="Fondue-Iglu reservieren"
+				label={__('Fondue-Iglu reservieren', 'searchbar')}
 				checked={attributes.tischres_fondue}
 				onChange={(val) => setAttributes({ tischres_fondue: val })}
 			/>
 			<CheckboxControl
-				label="Raclettehütte reservieren"
+				label={__('Raclettehütte reservieren', 'searchbar')}
 				checked={attributes.tischres_raclett}
 				onChange={(val) => setAttributes({ tischres_raclett: val })}
 			/>
@@ -100,39 +100,39 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={(val) => setAttributes({ dropdn_firstselected: val })}
 				options={[
 					{
-						label: 'Angebot Auswahl auswählen',
+						label: __('Angebot Auswahl auswählen', 'searchbar'),
 						value: ''
 					},
 					{
-						label: 'Bergbahntickets kaufen',
+						label: __('Bergbahntickets kaufen', 'searchbar'),
 						value: 'bahn'
 					},
 					{
-						label: 'Ski- und Bergbahntickets kaufen',
+						label: __('Ski- und Bergbahntickets kaufen', 'searchbar'),
 						value: 'ski'
 					},
 					{
-						label: 'Übernachtung buchen',
+						label: __('Übernachtung buchen', 'searchbar'),
 						value: 'hotel'
 					},
 					{
-						label: 'Tisch reservieren',
+						label: __('Tisch reservieren', 'searchbar'),
 						value: 'restaurant'
 					},
 					{
-						label: 'Fondue-Iglu reservieren',
+						label: __('Fondue-Iglu reservieren', 'searchbar'),
 						value: 'fondures'
 					},
 					{
-						label: 'Raclettehütte reservieren',
+						label: __('Raclettehütte reservieren', 'searchbar'),
 						value: 'raclettres'
 					},
 					{
-						label: 'Alpkäsereibesuch buchen',
+						label: __('Alpkäsereibesuch buchen', 'searchbar'),
 						value: 'kaserei'
 					},
 					{
-						label: 'Gutscheine bestellen',
+						label: __('Gutscheine bestellen', 'searchbar'),
 						value: 'gutschein'
 					}
 				]}
@@ -142,15 +142,15 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={(val) => setAttributes({ dropdn_restselected: val })}
 				options={[
 					{
-						label: 'Wähle Auswahl Tisch reservieren aus',
+						label: __('Wähle Auswahl Tisch reservieren aus', 'searchbar'),
 						value: ''
 					},
 					{
-						label: 'Raclettehütte',
+						label: __('Raclettehütte', 'searchbar'),
 						value: 'raclett'
 					},
 					{
-						label: 'Fondue-Iglu',
+						label: __('Fondue-Iglu', 'searchbar'),
 						value: 'fondue'
 					}
 				]}
