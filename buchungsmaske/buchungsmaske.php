@@ -20,8 +20,28 @@ add_action( 'init', 'create_block_searchbar_block_init' );
 
 add_action( 'wp_head', function () { ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	
-	
-	
-	<?php } );
-?>
+	<style>
+		.form-label {
+			color: #f8f9fa !important;
+		}
+
+		.displaynone{
+			display: none;
+		}
+
+		.btn-searchbox {
+			display: none;
+		}
+		
+		.form-control:focus {
+			color: unset;
+		}
+
+		.searchBox input, .searchBox select{
+			background-color: unset;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<?php } ); ?>
