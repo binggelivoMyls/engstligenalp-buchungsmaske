@@ -18,6 +18,30 @@ function create_block_searchbar_block_init() {
 }
 add_action( 'init', 'create_block_searchbar_block_init' );
 
+function daterangepicker_external_script() {
+    wp_enqueue_script(
+        'daterangepicker-script', // Eindeutiger Name für das externe Skript
+        'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', // URL zum externen Skript
+        array(), // Keine Abhängigkeiten für das externe Skript
+        '1.0.0', // Versionsnummer
+        false // Im Header laden
+    );
+}
+
+add_action('wp_enqueue_scripts', 'daterangepicker_external_script');
+
+function buchungsmask_script() {
+    wp_enqueue_script(
+        'buchungsmask-script', // Eindeutiger Name für dein Skript
+        plugin_dir_url(__FILE__) . 'js/buchungsmask.js', // Pfad zur JavaScript-Datei
+        array('jquery'), // Abhängigkeiten
+        '1.0.0', // Versionsnummer
+        true // Im Footer laden
+    );
+}
+
+add_action('wp_enqueue_scripts', 'buchungsmask_script');
+
 add_action( 'wp_head', function () { ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>

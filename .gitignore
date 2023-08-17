@@ -1,3 +1,4 @@
-# generatet
-
-buchungsmaske/node_module/
+buchungsmaske/node_module*
+package-lock.json
+buchungsmaske/build*
+buchungsmaske/package-lock.json
