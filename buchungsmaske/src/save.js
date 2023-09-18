@@ -29,58 +29,58 @@ export default function save( {attributes} ) {
     var tischres_raclett;
     if (attributes.bergbhntickets){
         if (attributes.dropdn_firstselected == "bahn"){
-            bergbhntickets = <option value="bahn" selected>{__('Bergbahntickets kaufen', 'searchbar')}</option>;
+            bergbhntickets = <option value="1" selected>{__('Bergbahntickets kaufen', 'searchbar')}</option>;
         }else{
-            bergbhntickets = <option value="bahn">{__('Bergbahntickets kaufen', 'searchbar')}</option>;
+            bergbhntickets = <option value="1">{__('Bergbahntickets kaufen', 'searchbar')}</option>;
         }
     }
     if (attributes.skiticket){
         if (attributes.dropdn_firstselected == "ski"){
-            skiticket = <option value="ski" selected>{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
+            skiticket = <option value="2" selected>{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
         }else{
-            skiticket = <option value="ski">{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
+            skiticket = <option value="2">{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
         }
     }
     if (attributes.uebernachtungbuchn){
         if (attributes.dropdn_firstselected == "hotel"){
-            uebernachtungbuchn = <option value="hotel" selected>{__('Übernachtung buchen', 'searchbar')}</option>;
+            uebernachtungbuchn = <option value="3" selected>{__('Übernachtung buchen', 'searchbar')}</option>;
         }else{
-            uebernachtungbuchn = <option value="hotel">{__('Übernachtung buchen', 'searchbar')}</option>;
+            uebernachtungbuchn = <option value="3">{__('Übernachtung buchen', 'searchbar')}</option>;
         }
     }
     if (attributes.tischres_raclett || attributes.tischres_fondue){
         if (attributes.dropdn_firstselected == "restaurant"){
-            tischres = <option value="restaurant" selected>{__('Tisch reservieren', 'searchbar')}</option>;
+            tischres = <option value="4" selected>{__('Tisch reservieren', 'searchbar')}</option>;
         }else{
-            tischres = <option value="restaurant">{__('Tisch reservieren', 'searchbar')}</option>;
+            tischres = <option value="4">{__('Tisch reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.kaesereibesuch){
         if (attributes.dropdn_firstselected == "kaserei"){
-            kaesereibesuch = <option value="kaserei" selected>{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
+            kaesereibesuch = <option value="5" selected>{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
         }else{
-            kaesereibesuch = <option value="kaserei">{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
+            kaesereibesuch = <option value="5">{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
         }
     }
     if (attributes.gutschein){
         if (attributes.dropdn_firstselected == "gutschein"){
-            gutschein = <option value="gutschein" selected>{__('Gutscheine bestellen', 'searchbar')}</option>;
+            gutschein = <option value="6" selected>{__('Gutscheine bestellen', 'searchbar')}</option>;
         }else{
-            gutschein = <option value="gutschein">{__('Gutscheine bestellen', 'searchbar')}</option>;
+            gutschein = <option value="6">{__('Gutscheine bestellen', 'searchbar')}</option>;
         }
     }
     if (attributes.fondures){
         if (attributes.dropdn_firstselected == "fondures"){
-            fondures = <option value="fondures" selected>{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
+            fondures = <option value="7" selected>{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
         }else{
-            fondures = <option value="fondures">{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
+            fondures = <option value="7">{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.raclettres){
         if (attributes.dropdn_firstselected == "raclettres"){
-            raclettres = <option value="raclettres" selected>{__('Raclettehütte reservieren', 'searchbar')}</option>;
+            raclettres = <option value="8" selected>{__('Raclettehütte reservieren', 'searchbar')}</option>;
         }else{
-            raclettres = <option value="raclettres">{__('Raclettehütte reservieren', 'searchbar')}</option>;
+            raclettres = <option value="8">{__('Raclettehütte reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.tischres_raclett){
