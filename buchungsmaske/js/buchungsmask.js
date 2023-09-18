@@ -119,49 +119,49 @@
         })
 
         function searchboxHtml() {
-            if ($(".card_searchbox #searchbox-dropdown").val() == "hotel") {
+            if ($(".card_searchbox #searchbox-dropdown").val() == "3") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-hotel").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "2") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].TicketBestellen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "4") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-reservieren").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Restaurant'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "7") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Fondue Reservieren'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "8") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Raclett reservieren'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "5") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Käserei'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "6") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Gutscheine'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "1") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-ticket").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztLosen);
