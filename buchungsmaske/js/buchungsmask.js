@@ -173,7 +173,7 @@
         $(".card_searchbox .btn-success").click(function (e) {
             e.preventDefault();
 
-            if ($(".card_searchbox #searchbox-dropdown").val() == "hotel") {
+            if ($(".card_searchbox #searchbox-dropdown").val() == "3") {
                 dataLayer.push({'Searchbox': 'Hotel'});
                 var persondetail = "";
                 i = 0;
@@ -207,7 +207,7 @@
                 }
 
                 document.location = (newUrl).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "2") {
                 dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
 				if (langsh == "en"){
 					var url = " https://www.adelboden-lenk.ch/en/Shop/Ticketoverview?area=48";
@@ -227,7 +227,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "4") {
                 //dataLayer.push({'Searchbox': 'Restaurant'});
                 if ($("#chooseRestaurant").val() == "raclett") {
                     var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
@@ -267,7 +267,7 @@
 
                     document.location = (url).replaceAll("amp;", "");
                 }
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "7") {
                 dataLayer.push({'Searchbox': 'Restaurant Fondue'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
@@ -280,7 +280,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "8") {
                 dataLayer.push({'Searchbox': 'Restaurant Raclett'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
@@ -293,7 +293,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "5") {
                 dataLayer.push({'Searchbox': 'Käserei'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
@@ -306,7 +306,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "6") {
                 dataLayer.push({'Searchbox': 'Gutscheine'});
                 var url = "https://shop.e-guma.ch/engstligenalp/" + langsh + "/gutscheine";
 
@@ -319,7 +319,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "1") {
                 dataLayer.push({'Searchbox': 'Bergbahn'});
                 var persondetail = "";
                 i = 0;
