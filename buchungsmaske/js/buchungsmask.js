@@ -124,49 +124,49 @@
                 $(".card_searchbox .searchbox-hotel").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].TicketBestellen);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-reservieren").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Restaurant'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Restaurant'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Fondue Reservieren'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Fondue Reservieren'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Raclett reservieren'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Raclett reservieren'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Käserei'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Käserei'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Gutscheine'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Gutscheine'}));
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-ticket").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztLosen);
                 $(".card_searchbox .btn-searchbox").show();
-                //console.log(dataLayer.push({'changeSearchbox': 'Bergbahnen'}));
+                console.log(dataLayer.push({'changeSearchbox': 'Bergbahnen'}));
             }
         };
 
@@ -174,7 +174,7 @@
             e.preventDefault();
 
             if ($(".card_searchbox #searchbox-dropdown").val() == "hotel") {
-                //dataLayer.push({'Searchbox': 'Hotel'});
+                dataLayer.push({'Searchbox': 'Hotel'});
                 var persondetail = "";
                 i = 0;
                 while (i < parseInt($("#hotelerw").val())) {
@@ -189,7 +189,7 @@
                 console.log(persondetail.slice(0, -1));
 
                 const urlParams = new URLSearchParams(window.location.search);
-                //dataLayer.push({'event': 'formSearchboxHotel'});
+                dataLayer.push({'event': 'formSearchboxHotel'});
                 
                 var newUrl = "https://www.simplebooking.it/ibe/hotelbooking/search?hid=7607&amp;lang=" + langsh + "&amp;guests=" +
                     persondetail.slice(0, -1) +
@@ -208,22 +208,29 @@
 
                 document.location = (newUrl).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
-                //dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
-                var url = "https://shop.engstligenalp.ch/" + langsh + "/";
+                dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
+				if (langsh == "en"){
+					var url = " https://www.adelboden-lenk.ch/en/Shop/Ticketoverview?area=48";
+				}else if(langsh == "fr"){
+					var url = "https://www.adelboden-lenk.ch/fr/Shop/Ticketuebersicht?area=48";
+				}else{
+					var url = "https://www.adelboden-lenk.ch/de/Shop/Ticketuebersicht?area=48";
+				}
+                //var url = "https://shop.engstligenalp.ch/" + langsh + "/";
 
                 if (getCookie("gclid") != "") {
-                    url += "?gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+                    url += "&gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
-                    url += "?fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+                    url += "&fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else {
-                    url += "?utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+                    url += "&utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 }
 
                 document.location = (url).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                 //dataLayer.push({'Searchbox': 'Restaurant'});
                 if ($("#chooseRestaurant").val() == "raclett") {
-                    var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9";
+                    var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
                     if (getCookie("gclid") != "") {
                         url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
@@ -261,7 +268,7 @@
                     document.location = (url).replaceAll("amp;", "");
                 }
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
-                //dataLayer.push({'Searchbox': 'Restaurant Fondue'});
+                dataLayer.push({'Searchbox': 'Restaurant Fondue'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
                 if (getCookie("gclid") != "") {
@@ -274,8 +281,8 @@
 
                 document.location = (url).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
-                //dataLayer.push({'Searchbox': 'Restaurant Raclett'});
-                var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9";
+                dataLayer.push({'Searchbox': 'Restaurant Raclett'});
+                var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
                 if (getCookie("gclid") != "") {
                     url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
@@ -287,7 +294,7 @@
 
                 document.location = (url).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
-                //dataLayer.push({'Searchbox': 'Käserei'});
+                dataLayer.push({'Searchbox': 'Käserei'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
                 if (getCookie("gclid") != "") {
@@ -300,7 +307,7 @@
 
                 document.location = (url).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein") {
-                //dataLayer.push({'Searchbox': 'Gutscheine'});
+                dataLayer.push({'Searchbox': 'Gutscheine'});
                 var url = "https://shop.e-guma.ch/engstligenalp/" + langsh + "/gutscheine";
 
                 if (getCookie("gclid") != "") {
@@ -313,7 +320,7 @@
 
                 document.location = (url).replaceAll("amp;", "");
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
-                //dataLayer.push({'Searchbox': 'Bergbahn'});
+                dataLayer.push({'Searchbox': 'Bergbahn'});
                 var persondetail = "";
                 i = 0;
                 ii = 0;
