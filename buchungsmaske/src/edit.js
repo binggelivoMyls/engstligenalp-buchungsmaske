@@ -32,6 +32,11 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
+
+
+// Hier werden alle Elemente beschrieben, die im Backend eingestellt werden können und wo das die Daten gespeichert werden
+
+// Nach den Checkboxen sind die Select welche elemente standartmässig angezeigt werden sollen.
 export default function Edit({ attributes, setAttributes }) {
 	return (
 		<div {...useBlockProps()}>
@@ -47,9 +52,14 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={(val) => setAttributes({ bergbhntickets: val })}
 			/>
 			<CheckboxControl
-				label={__('Ski- und Bergbahntickets kaufen', 'searchbar')}
+				label={__('Skitickets kaufen', 'searchbar')}
 				checked={attributes.skiticket}
 				onChange={(val) => setAttributes({ skiticket: val })}
+			/>
+			<CheckboxControl
+				label={__('Ski- und Bergbahntickets kaufen', 'searchbar')}
+				checked={attributes.skibergticket}
+				onChange={(val) => setAttributes({ skibergticket: val })}
 			/>
 			<CheckboxControl
 				label={__('Übernachtung buchen', 'searchbar')}
@@ -108,8 +118,12 @@ export default function Edit({ attributes, setAttributes }) {
 						value: 'bahn'
 					},
 					{
-						label: __('Ski- und Bergbahntickets kaufen', 'searchbar'),
+						label: __('Skitickets kaufen', 'searchbar'),
 						value: 'ski'
+					},
+					{
+						label: __('Ski- und Bergbahntickets kaufen', 'searchbar'),
+						value: 'skiberg'
 					},
 					{
 						label: __('Übernachtung buchen', 'searchbar'),

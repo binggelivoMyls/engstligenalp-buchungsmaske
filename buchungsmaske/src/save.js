@@ -17,9 +17,12 @@ import { __ } from '@wordpress/i18n';
  * @return {WPElement} Element to render.
  */
 export default function save( {attributes} ) {
+
+    // Inizialiseren der Dropdown elemente
     var bergbhntickets;
     var uebernachtungbuchn;
     var skiticket;
+    var skibergticket
     var tischres;
     var kaesereibesuch;
     var gutschein;
@@ -27,60 +30,69 @@ export default function save( {attributes} ) {
     var raclettres;
     var tischres_fondue;
     var tischres_raclett;
+
+    // Zuteilung der Dropdown elemente und ob sie ausgewählt sind
     if (attributes.bergbhntickets){
         if (attributes.dropdn_firstselected == "bahn"){
-            bergbhntickets = <option value="1" selected>{__('Bergbahntickets kaufen', 'searchbar')}</option>;
+            bergbhntickets = <option value="bahn" selected>{__('Bergbahntickets kaufen', 'searchbar')}</option>;
         }else{
-            bergbhntickets = <option value="1">{__('Bergbahntickets kaufen', 'searchbar')}</option>;
+            bergbhntickets = <option value="bahn">{__('Bergbahntickets kaufen', 'searchbar')}</option>;
         }
     }
     if (attributes.skiticket){
         if (attributes.dropdn_firstselected == "ski"){
-            skiticket = <option value="2" selected>{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
+            skiticket = <option value="ski" selected>{__('Skitickets kaufen', 'searchbar')}</option>;
         }else{
-            skiticket = <option value="2">{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
+            skiticket = <option value="ski">{__('Skitickets kaufen', 'searchbar')}</option>;
+        }
+    }
+    if (attributes.skibergticket){
+        if (attributes.dropdn_firstselected == "skiberg"){
+            skibergticket = <option value="skiberg" selected>{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
+        }else{
+            skibergticket = <option value="skiberg">{__('Ski- und Bergbahntickets kaufen', 'searchbar')}</option>;
         }
     }
     if (attributes.uebernachtungbuchn){
         if (attributes.dropdn_firstselected == "hotel"){
-            uebernachtungbuchn = <option value="3" selected>{__('Übernachtung buchen', 'searchbar')}</option>;
+            uebernachtungbuchn = <option value="hotel" selected>{__('Übernachtung buchen', 'searchbar')}</option>;
         }else{
-            uebernachtungbuchn = <option value="3">{__('Übernachtung buchen', 'searchbar')}</option>;
+            uebernachtungbuchn = <option value="hotel">{__('Übernachtung buchen', 'searchbar')}</option>;
         }
     }
     if (attributes.tischres_raclett || attributes.tischres_fondue){
         if (attributes.dropdn_firstselected == "restaurant"){
-            tischres = <option value="4" selected>{__('Tisch reservieren', 'searchbar')}</option>;
+            tischres = <option value="restaurant" selected>{__('Tisch reservieren', 'searchbar')}</option>;
         }else{
-            tischres = <option value="4">{__('Tisch reservieren', 'searchbar')}</option>;
+            tischres = <option value="restaurant">{__('Tisch reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.kaesereibesuch){
         if (attributes.dropdn_firstselected == "kaserei"){
-            kaesereibesuch = <option value="5" selected>{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
+            kaesereibesuch = <option value="kaserei" selected>{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
         }else{
-            kaesereibesuch = <option value="5">{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
+            kaesereibesuch = <option value="kaserei">{__('Alpkäsereibesuch buchen', 'searchbar')}</option>;
         }
     }
     if (attributes.gutschein){
         if (attributes.dropdn_firstselected == "gutschein"){
-            gutschein = <option value="6" selected>{__('Gutscheine bestellen', 'searchbar')}</option>;
+            gutschein = <option value="gutschein" selected>{__('Gutscheine bestellen', 'searchbar')}</option>;
         }else{
-            gutschein = <option value="6">{__('Gutscheine bestellen', 'searchbar')}</option>;
+            gutschein = <option value="gutschein">{__('Gutscheine bestellen', 'searchbar')}</option>;
         }
     }
     if (attributes.fondures){
         if (attributes.dropdn_firstselected == "fondures"){
-            fondures = <option value="7" selected>{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
+            fondures = <option value="fondures" selected>{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
         }else{
-            fondures = <option value="7">{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
+            fondures = <option value="fondures">{__('Fondue-Iglu reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.raclettres){
         if (attributes.dropdn_firstselected == "raclettres"){
-            raclettres = <option value="8" selected>{__('Raclettehütte reservieren', 'searchbar')}</option>;
+            raclettres = <option value="raclettres" selected>{__('Raclettehütte reservieren', 'searchbar')}</option>;
         }else{
-            raclettres = <option value="8">{__('Raclettehütte reservieren', 'searchbar')}</option>;
+            raclettres = <option value="raclettres">{__('Raclettehütte reservieren', 'searchbar')}</option>;
         }
     }
     if (attributes.tischres_raclett){
@@ -98,9 +110,7 @@ export default function save( {attributes} ) {
         }
     }
 
-
-
-
+    // Render der HTML struktur. Es sind auch alle Html elemente breeits gebaut und werden ausgeblendet. Die Elemente werden ausgeblendet konrtrolliert wird das durch das Javascript im Ordner js/buchungsmaske.js
 
 	return (
 		<section id="searchBox" class="searchBox">
@@ -137,6 +147,7 @@ export default function save( {attributes} ) {
                                     <option disabled selected>{__('Angebot auswählen', 'searchbar')}</option>
                                     {bergbhntickets}
                                     {skiticket}
+                                    {skibergticket}
                                     {uebernachtungbuchn}
                                     {tischres}
                                     {fondures}

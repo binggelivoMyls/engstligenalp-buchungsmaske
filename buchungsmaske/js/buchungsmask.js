@@ -117,51 +117,65 @@
         $(".card_searchbox #searchbox-dropdown").change(function () {
             searchboxHtml();
         })
+		
+		// Hauptdropdown
 
         function searchboxHtml() {
-            if ($(".card_searchbox #searchbox-dropdown").val() == "3") {
+            if ($(".card_searchbox #searchbox-dropdown").val() == "hotel" || $(".card_searchbox #searchbox-dropdown").val() == "hôtel" ) {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-hotel").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Hotel'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "2") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
+                $(".card_searchbox .searchbox-changes").addClass("displaynone");
+                $(".card_searchbox .searchbox-leer").removeClass("displaynone");
+                $(".card_searchbox .btn-success").html(langu[langsh].TicketBestellen);
+                $(".card_searchbox .btn-searchbox").show();
+                console.log(dataLayer.push({'changeSearchbox': 'Bergbahntickets kaufen'}));
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
+                $(".card_searchbox .searchbox-changes").addClass("displaynone");
+                $(".card_searchbox .searchbox-leer").removeClass("displaynone");
+                $(".card_searchbox .btn-success").html(langu[langsh].TicketBestellen);
+                $(".card_searchbox .btn-searchbox").show();
+                console.log(dataLayer.push({'changeSearchbox': 'Skitickets kaufen'}));
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "skiberg") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].TicketBestellen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Ski- und Bergbahntickets kaufen'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "4") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-reservieren").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Restaurant'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "7") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Fondue Reservieren'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "8") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztReservieren);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Raclett reservieren'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "5") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Käserei'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "6") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein" || $(".card_searchbox #searchbox-dropdown").val() == "bon d'achat") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-leer").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztBuchen);
                 $(".card_searchbox .btn-searchbox").show();
                 console.log(dataLayer.push({'changeSearchbox': 'Gutscheine'}));
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "1") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
                 $(".card_searchbox .searchbox-changes").addClass("displaynone");
                 $(".card_searchbox .searchbox-ticket").removeClass("displaynone");
                 $(".card_searchbox .btn-success").html(langu[langsh].JetztLosen);
@@ -173,7 +187,7 @@
         $(".card_searchbox .btn-success").click(function (e) {
             e.preventDefault();
 
-            if ($(".card_searchbox #searchbox-dropdown").val() == "3") {
+            if ($(".card_searchbox #searchbox-dropdown").val() == "hotel" || $(".card_searchbox #searchbox-dropdown").val() == "hôtel") {
                 dataLayer.push({'Searchbox': 'Hotel'});
                 var persondetail = "";
                 i = 0;
@@ -191,7 +205,7 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 dataLayer.push({'event': 'formSearchboxHotel'});
                 
-                var newUrl = "https://www.simplebooking.it/ibe/hotelbooking/search?hid=7607&amp;lang=" + langsh + "&amp;guests=" +
+                var newUrl = "https://www.simplebooking.it/ibe/hotelbooking/search?hid=7607&lang=" + langsh + "&amp;guests=" +
                     persondetail.slice(0, -1) +
                     "&amp;in=" +
                     $("#hoteldate").val().split("-")[0].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[0] +
@@ -207,7 +221,7 @@
                 }
 
                 document.location = (newUrl).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "2") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                 dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
 				if (langsh == "en"){
 					var url = " https://www.adelboden-lenk.ch/en/Shop/Ticketoverview?area=48";
@@ -227,7 +241,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "4") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                 //dataLayer.push({'Searchbox': 'Restaurant'});
                 if ($("#chooseRestaurant").val() == "raclett") {
                     var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
@@ -267,7 +281,7 @@
 
                     document.location = (url).replaceAll("amp;", "");
                 }
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "7") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
                 dataLayer.push({'Searchbox': 'Restaurant Fondue'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
@@ -280,7 +294,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "8") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
                 dataLayer.push({'Searchbox': 'Restaurant Raclett'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
@@ -293,7 +307,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "5") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
                 dataLayer.push({'Searchbox': 'Käserei'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
@@ -306,7 +320,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "6") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein" || $(".card_searchbox #searchbox-dropdown").val() == "bon d'achat") {
                 dataLayer.push({'Searchbox': 'Gutscheine'});
                 var url = "https://shop.e-guma.ch/engstligenalp/" + langsh + "/gutscheine";
 
@@ -319,7 +333,7 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
-            } else if ($(".card_searchbox #searchbox-dropdown").val() == "1") {
+            } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
                 dataLayer.push({'Searchbox': 'Bergbahn'});
                 var persondetail = "";
                 i = 0;
@@ -384,6 +398,7 @@
             }
         });
         searchboxHtml();
+		var date = new Date();
         jQuery('.card_searchbox #hoteldate').daterangepicker({
             "showWeekNumbers": true,
             "autoApply": true,
@@ -400,7 +415,8 @@
                 "monthNames": langu[langsh].monthNames,
                 "firstDay": 1
             },
-            "minDate": new Date()
+            "minDate": new Date(),
+			"endDate": new Date(Date.now() + 86400000)
         });
 
         jQuery('.card_searchbox #bahndatum').daterangepicker({
@@ -420,7 +436,8 @@
                 "monthNames": langu[langsh].monthNames,
                 "firstDay": 1
             },
-            "minDate": new Date()
+            "minDate": new Date(),
+			"endDate": new Date(Date.now() + 86400000)
         });
     })
 })();

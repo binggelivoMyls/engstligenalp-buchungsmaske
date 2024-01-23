@@ -18,6 +18,9 @@
 		"skiticket": {
 			"type": "boolean"
 		},
+		"skibergticket": {
+			"type": "boolean"
+		},
 		"bergbhntickets": {
 			"type": "boolean"
 		},

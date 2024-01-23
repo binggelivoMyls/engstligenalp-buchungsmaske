@@ -27,7 +27,6 @@ function daterangepicker_external_script() {
         false // Im Header laden
     );
 }
-
 add_action('wp_enqueue_scripts', 'daterangepicker_external_script');
 
 function buchungsmask_script() {
@@ -39,9 +38,9 @@ function buchungsmask_script() {
         true // Im Footer laden
     );
 }
-
 add_action('wp_enqueue_scripts', 'buchungsmask_script');
 
+// CSS und ein paar Verlinkungen die ich brauche
 add_action( 'wp_head', function () { ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
