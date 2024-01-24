@@ -15,5 +15,7 @@ WP-Plugin für Buchungsmaske auf der Engstliegenalp.ch Seite
 ## Was ist wo
 
 Bearbeite die Struktur für das Frontend im file src/save.js
+
 Für Links und allgemein die Interaktion im frontend musst du im file js/buchungsmask.js
+
 Wenn du die Ansicht im WP-Admin bearbeiten möchtest findest du alles im src/edit.js
