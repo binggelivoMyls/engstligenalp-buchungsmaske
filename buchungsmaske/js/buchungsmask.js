@@ -1,6 +1,8 @@
 (function() {
     //document.querySelectorAll("html.skrollr.skrollr-mobile").removeEventListener("touchend", function (a){})
     jQuery(document).ready(function ($) {
+
+	// Sprachen erkennen
         var lang = $("html").attr("lang");
 
         console.log(lang);
@@ -12,6 +14,8 @@
             langsh = "en";
         }
         console.log(langsh);
+
+	// Übersetzung der Wörter
         langu = {
             de: {
                 JetztBuchen:"Jetzt buchen",
@@ -114,11 +118,12 @@
             }
         }
 
+	// Eventlistener wenn Dropdown geändert wurde
         $(".card_searchbox #searchbox-dropdown").change(function () {
             searchboxHtml();
         })
 		
-		// Hauptdropdown
+	// Hauptdropdown wass passiert wenn etwas ausgewählt wird
 
         function searchboxHtml() {
             if ($(".card_searchbox #searchbox-dropdown").val() == "hotel" || $(".card_searchbox #searchbox-dropdown").val() == "hôtel" ) {
@@ -184,9 +189,11 @@
             }
         };
 
+	// Was passiert wenn Button geklickt wird
         $(".card_searchbox .btn-success").click(function (e) {
             e.preventDefault();
 
+			// Wenn Hotel buchung vorgenommen werden soll. Wird die Url zusammen gestelt für simplebooking
             if ($(".card_searchbox #searchbox-dropdown").val() == "hotel" || $(".card_searchbox #searchbox-dropdown").val() == "hôtel") {
                 dataLayer.push({'Searchbox': 'Hotel'});
                 var persondetail = "";
@@ -211,7 +218,8 @@
                     $("#hoteldate").val().split("-")[0].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[0].trim().split(".")[0] +
                     "&amp;out=" +
                     $("#hoteldate").val().split("-")[1].trim().split(".")[2] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[1] + "-" + $("#hoteldate").val().split("-")[1].trim().split(".")[0];
-                
+
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     newUrl += "&amp;gclid=" + getCookie("gclid") + "&amp;coupon=&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -221,6 +229,8 @@
                 }
 
                 document.location = (newUrl).replaceAll("amp;", "");
+
+			// Wenn Skitickets gebucht werden einfacht umleitung auf den Webshop
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "ski") {
                 dataLayer.push({'Searchbox': 'Ski- und Bergbahntickets kaufen'});
 				if (langsh == "en"){
@@ -232,6 +242,7 @@
 				}
                 //var url = "https://shop.engstligenalp.ch/" + langsh + "/";
 
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     url += "&gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -241,11 +252,16 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
+
+			// Wenn ein Tisch reserviert werden soll
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "restaurant") {
                 //dataLayer.push({'Searchbox': 'Restaurant'});
+
+				// Tisch reservieren in der Racletthütte via Aleno
                 if ($("#chooseRestaurant").val() == "raclett") {
                     var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
+					// Sektion, damit die Google und Facebook Tracking übergeben werden
                     if (getCookie("gclid") != "") {
                         url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                     } else if (getCookie("fbclid") != "") {
@@ -255,9 +271,12 @@
                     }
 
                     document.location = (url).replaceAll("amp;", "");
+
+				// Tisch Fondueiglu via Aleno
                 } else if ($("#chooseRestaurant").val() == "fondue") {
                     var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
+					// Sektion, damit die Google und Facebook Tracking übergeben werden
                     if (getCookie("gclid") != "") {
                         url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                     } else if (getCookie("fbclid") != "") {
@@ -268,23 +287,13 @@
 
                     document.location = (url).replaceAll("amp;", "");
                 }
-                if ($("#chooseRestaurant").val() == "fondue") {
-                    var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
-                    if (getCookie("gclid") != "") {
-                        url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                    } else if (getCookie("fbclid") != "") {
-                        url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                    } else {
-                        url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                    }
-
-                    document.location = (url).replaceAll("amp;", "");
-                }
+			// Tisch reservieren im Fondue Restaurant via Aleno
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "fondures") {
                 dataLayer.push({'Searchbox': 'Restaurant Fondue'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiQVJ4THJ0cllHNXEyMkZ6ZzIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -294,10 +303,13 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
+
+			// Tisch reservieren im Raclett Restaurant via Aleno
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "raclettres") {
                 dataLayer.push({'Searchbox': 'Restaurant Raclett'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiRUx0TUNMeHk3d3F0ZGJLRGoiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&skipFirstSteps=true&paxDef=10&paxMin=10";
 
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -307,10 +319,13 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
+
+			// Käsereibesuch reservieren via Aleno
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "kaserei") {
                 dataLayer.push({'Searchbox': 'Käserei'});
                 var url = "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiajhaZm9yWnpleWs4OEtnQ3oiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9&amp;skipFirstSteps=true";
 
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -320,10 +335,13 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
+
+			// Gutschein buchen via E-Guma
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "gutschein" || $(".card_searchbox #searchbox-dropdown").val() == "bon d'achat") {
                 dataLayer.push({'Searchbox': 'Gutscheine'});
                 var url = "https://shop.e-guma.ch/engstligenalp/" + langsh + "/gutscheine";
 
+				// Sektion, damit die Google und Facebook Tracking übergeben werden
                 if (getCookie("gclid") != "") {
                     url += "?gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
                 } else if (getCookie("fbclid") != "") {
@@ -333,6 +351,8 @@
                 }
 
                 document.location = (url).replaceAll("amp;", "");
+
+			// Bergbahntickets buchen via engstligen Shop zusammensetzung der Url
             } else if ($(".card_searchbox #searchbox-dropdown").val() == "bahn") {
                 dataLayer.push({'Searchbox': 'Bergbahn'});
                 var persondetail = "";
@@ -355,13 +375,14 @@
                         persondetail +
                         "&amp;dp=0");
 
-                        if (getCookie("gclid") != "") {
-                            url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else if (getCookie("fbclid") != "") {
-                            url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else {
-                            url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        }
+					// Sektion, damit die Google und Facebook Tracking übergeben werden
+					if (getCookie("gclid") != "") {
+						url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else if (getCookie("fbclid") != "") {
+						url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else {
+						url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					}
 
                     document.location = (url).replaceAll("amp;", "");
                 } else if ($("#chooseFahrt").val() == "abe") {
@@ -370,13 +391,14 @@
                         persondetail +
                         "&amp;dp=0");
 
-                        if (getCookie("gclid") != "") {
-                            url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else if (getCookie("fbclid") != "") {
-                            url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else {
-                            url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        }
+					// Sektion, damit die Google und Facebook Tracking übergeben werden
+					if (getCookie("gclid") != "") {
+						url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else if (getCookie("fbclid") != "") {
+						url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else {
+						url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					}
 
                     document.location = (url).replaceAll("amp;", "");
                 } else if ($("#chooseFahrt").val() == "retour") {
@@ -385,19 +407,24 @@
                         persondetail +
                         "&amp;dp=0");
 
-                        if (getCookie("gclid") != "") {
-                            url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else if (getCookie("fbclid") != "") {
-                            url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        } else {
-                            url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
-                        }
+					// Sektion, damit die Google und Facebook Tracking übergeben werden
+					if (getCookie("gclid") != "") {
+						url += "&amp;gclid=" + getCookie("gclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else if (getCookie("fbclid") != "") {
+						url += "&amp;fbclid=" + getCookie("fbclid") + "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					} else {
+						url += "&amp;utm_source=" + getCookie("utm_source") + "&amp;utm_medium=" + getCookie("utm_medium");
+					}
 
                     document.location = (url).replaceAll("amp;", "");
                 }
             }
         });
+
+		// First inizialisierung falls etwas default eingestellt ist
         searchboxHtml();
+
+		// Inizialisierung der Daterage Datepicker
 		var date = new Date();
         jQuery('.card_searchbox #hoteldate').daterangepicker({
             "showWeekNumbers": true,
@@ -420,24 +447,24 @@
         });
 
         jQuery('.card_searchbox #bahndatum').daterangepicker({
-            "singleDatePicker": true,
-            "showWeekNumbers": true,
-            "autoApply": true,
-            "locale": {
-                "format": "DD.MM.YYYY",
-                "separator": " - ",
-                "applyLabel": "Apply",
-                "cancelLabel": langu[langsh].cancelLabel,
-                "fromLabel": langu[langsh].fromLabel,
-                "toLabel": langu[langsh].toLabel,
-                "customRangeLabel": "Custom",
-                "weekLabel": "W",
-                "daysOfWeek": langu[langsh].daysOfWeek,
-                "monthNames": langu[langsh].monthNames,
-                "firstDay": 1
-            },
-            "minDate": new Date(),
-			"endDate": new Date(Date.now() + 86400000)
-        });
+		    "singleDatePicker": true,
+		    "showWeekNumbers": true,
+		    "autoApply": true,
+		    "locale": {
+			"format": "DD.MM.YYYY",
+			"separator": " - ",
+			"applyLabel": "Apply",
+			"cancelLabel": langu[langsh].cancelLabel,
+			"fromLabel": langu[langsh].fromLabel,
+			"toLabel": langu[langsh].toLabel,
+			"customRangeLabel": "Custom",
+			"weekLabel": "W",
+			"daysOfWeek": langu[langsh].daysOfWeek,
+			"monthNames": langu[langsh].monthNames,
+			"firstDay": 1
+		},
+		"minDate": new Date(),
+		"endDate": new Date(Date.now() + 86400000)
+		});
     })
 })();
